@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp đường tròn</title>
+</head>
+<body>
+
+
+
+    <script>
+        function myCircle(radius1){
+
+            this.radius = radius1;
+            this.color = 'black';
+            this.lenght = radius1*2*Math.PI;
+            this.area = Math.PI*(radius1**2)/4;
+        }
+        let circle1 = new myCircle(30);
+        console.log(circle1.color);
+        console.log(circle1.radius);
+    </script>
+</body>
+</html>
