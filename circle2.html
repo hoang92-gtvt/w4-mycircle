@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ đường tròn</title>
+</head>
+<body>
+    <canvas  id= 'mycanvas' width="800px" height="800px" style="border-width: 1px; solid:#d3d3d3; color: crimson "></canvas>
+
+    <script>
+        function myCricle(x,y,r){
+            this.posiX=x;
+            this.posiY=y;
+            this.radius=r;
+
+        }
+
+        let  ctx=document.getElementById('mycanvas').getContext('2d');
+        let circle1= new myCricle(100,100, 50);
+        ctx.beginPath();
+        ctx.arc(circle1.posiX, circle1.posiY, circle1.radius, 0, 2 * Math.PI);
+        ctx.fill();
+
+        var radius2 = Math.floor(Math.random() * 80);
+        let circle2= new myCricle(200,200, radius2);
+        ctx.beginPath();
+        ctx.arc(circle2.posiX, circle2.posiY, circle2.radius, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // function thiet lap mã màu
+        function getRandomHex(){
+            return Math.floor(Math.random()*255);
+        }
+        // thieu lap mau sac
+        function getRandomColor(){
+            var red = getRandomHex();
+            var green = getRandomHex();
+            var blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green +")";
+        }
+        //thiet lap 1 duongtrongbatky
+        function createCircle(){
+            var ctx1 = document.getElementById("mycanvas").getContext("2d");
+            var radius3 = Math.floor(Math.random() * 80);
+            var color3 = getRandomColor();
+            var x3 = Math.random() * window.innerWidth;
+            var y3 = Math.random() * window.innerHeight;
+            var circle3= new myCricle(x3, y3, radius3);
+            ctx1.beginPath();
+            ctx1.arc(circle3.posiX, circle3.posiY, circle3.radius, 0, 2 * Math.PI);
+            ctx1.fillStyle = color3;
+            ctx1.fill();
+        }
+        //thiet lap nhieu duong tron
+        function createMultipleCircle(){
+            for(var i = 0; i < 30; i++){
+                createCircle();
+            }
+        }
+
+        createMultipleCircle();
+
+
+    </script>
+</body>
+</html>
